@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Proyecto_Final_React/static/css/main.c43d5f49.css",
+    "main.js": "/Proyecto_Final_React/static/js/main.40ff1a5e.js",
+    "static/media/logo.png": "/Proyecto_Final_React/static/media/logo.8e0a28ec54db940e8053.png",
+    "index.html": "/Proyecto_Final_React/index.html",
+    "main.c43d5f49.css.map": "/Proyecto_Final_React/static/css/main.c43d5f49.css.map",
+    "main.40ff1a5e.js.map": "/Proyecto_Final_React/static/js/main.40ff1a5e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c43d5f49.css",
+    "static/js/main.40ff1a5e.js"
+  ]
+}
