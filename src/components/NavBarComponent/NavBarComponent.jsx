@@ -1,6 +1,6 @@
 import React from 'react';
 import { CartWidgetComponent } from '../CartWidgetComponent/CartWidgetComponent';
-import { NavItem } from '../NavItem/NavItem';
+import NavItem from '../NavItem/NavItem';
 import noLogo from '../../images/logo.png';
 
 export const NavBarComponent = () => {
@@ -11,15 +11,11 @@ export const NavBarComponent = () => {
         </div>
         <ul className="lists">
         <li>
-            <NavItem category = 'Home'/>
+            <NavItem label="Home" src="/"/>
         </li>
         <li>
-            <NavItem category = 'Saved'/>
+            <NavItem label="Saved" src="/saved"/>
         </li>
-        <li>
-            <NavItem category = 'Categories'/>
-        </li>
-            <NavItem category = 'Buy Again'/>
         </ul>
         <CartWidgetComponent/>
     </nav>

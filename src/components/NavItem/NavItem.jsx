@@ -1,7 +1,10 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
-export const NavItem = (props) => {
+const NavItem = ({label, src = '/'}) => {
     return (
-        <button className='nav-btn'>{props.category}</button>
+        <Link to={src}>{label}</Link>
     )
 }
+
+export default NavItem

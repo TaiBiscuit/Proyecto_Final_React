@@ -1,14 +1,14 @@
 import './App.css';
-import {NavBarComponent, ItemListContainer} from './components';
 import { MainLayout } from './layouts/MainLayout';
+import { MainRoutes } from './routes/MainRoutes';
 
 
 function App() {
+
   return (
     <div className="App">
-      <NavBarComponent/>
       <MainLayout>
-      <ItemListContainer  greetings='Hello! Welcome to ' subtitle='Just Buy It!'/>
+      <MainRoutes />
       </MainLayout>
     </div>
   );
