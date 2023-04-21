@@ -1,6 +1,7 @@
 import './App.css';
 import { MainLayout } from './layouts/MainLayout';
 import { MainRoutes } from './routes/MainRoutes';
+import { CartProvider } from './context';
 
 
 function App() {
@@ -8,7 +9,9 @@ function App() {
   return (
     <div className="App">
       <MainLayout>
-      <MainRoutes />
+        <CartProvider>
+        <MainRoutes />
+        </CartProvider>
       </MainLayout>
     </div>
   );

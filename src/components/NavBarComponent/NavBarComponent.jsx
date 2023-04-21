@@ -7,7 +7,7 @@ export const NavBarComponent = () => {
     return(
     <nav className="navbar">
         <div className='logoBox'>
-        <img src={noLogo} alt="placeHolder" className='logo' />
+            <NavItem label={<img src={noLogo} alt="placeHolder" className='logo' />} src="/"></NavItem>
         </div>
         <ul className="lists">
         <li>

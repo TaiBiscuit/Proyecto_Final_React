@@ -1,12 +1,16 @@
-import React from 'react';
-import icon from '../../images/shopping-cart.png';
+import React, { useContext } from 'react';
+import { CartButton } from '../index';
+import { CartContext } from '../../context';
 
 
 export const CartWidgetComponent = () => {
+
+    const {itemCount} = useContext(CartContext);
+
     return (
         <div className="cart-widget-div">
-        <img className="cart-icon" src={icon} alt="cart icon" />
-        <span className='bubble-icon'>1</span>
+        <CartButton />
+        <span className='bubble-icon'>{itemCount.qtyItems}</span>
         </div>
 
     );
