@@ -1,12 +1,13 @@
 import React from "react";
 import { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { CartContext } from "../../context"; 
+import { CartContext, SavedContext } from "../../context"; 
 
 export const Button = () => {
     const [state, setState] = useState(1);
     const { productId } = useParams();
-     const { itemCount, setItemCount } = useContext(CartContext);   
+    const { itemCount, setItemCount } = useContext(CartContext);   
+    const {savedItems, setSavedItems} = useContext(SavedContext)
 
     const handleLess = () => {
         setState(state - 1);
@@ -29,7 +30,8 @@ export const Button = () => {
     }
 
     const handleSave = () => {
-        console.log('TODO')
+        const savedProduct = productId;
+        setSavedItems((prevState) => prevState + ', ' + savedProduct);
     }
 
     return(

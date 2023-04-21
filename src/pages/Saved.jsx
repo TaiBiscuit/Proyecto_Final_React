@@ -1,23 +1,39 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {Button} from '../components/index';
-import { Loader } from '../components/index';
+import { collection, getDoc, doc, addDoc, getFirestore} from "firebase/firestore";
+import {useState, useEffect} from 'react';
+import { SavedContext } from '../context';
 
 
 export const Saved = () => {
-    const [loading, setLoading] = React.useState(true);
-    const [productData, setProductData] = React.useState({});
-
-    const { state } = this.props.location;
+    const {savedItems} = useContext(SavedContext);
     
-    return loading ? <Loader /> : (
+
+    const fetchById = async (id) => {
+        const db = getFirestore();
+        const ref = id.map((id) => doc(collection(db, "products"), id));
+        const productsSnap = await Promise.all(
+            ref.map((ref) => getDoc(ref))
+        );
+    
+        const products = productsSnap.map((productsSnap) => {
+        if(productsSnap.exists()) {
+            return {id: productsSnap.id, ...productsSnap.data()};
+        } else {
+            return null;
+        }
+        });
+    
+        return products.filter((product) => product !== null);
+    };
+    
+    return (
 
         <div className='productos'>
-        <div className="box">
-            <h1 className='title'>{productData.title}</h1>
-            <img src={productData.image} alt="" className='card-img'/>
-            <p className='price'>${productData.price}</p>
-            <Button />
-          </div>
+            <div className="box">
+                <p>{savedItems}</p>
+                <Button />
+            </div> 
         </div>
     )
 }

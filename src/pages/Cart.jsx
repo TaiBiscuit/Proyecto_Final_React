@@ -31,7 +31,6 @@ export const Cart = () => {
 
     useEffect(() => {
         const saveIds = itemCount.products.map((product) => product.productId);
-   /*      console.log(itemCount.qtyItems); */
         fetchById(saveIds)
         .then((res) => setProd(res))
         .catch((err) => console.log(err))

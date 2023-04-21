@@ -1,7 +1,7 @@
 import './App.css';
 import { MainLayout } from './layouts/MainLayout';
 import { MainRoutes } from './routes/MainRoutes';
-import { CartProvider } from './context';
+import { CartProvider, SavedProvider } from './context';
 
 
 function App() {
@@ -10,7 +10,9 @@ function App() {
     <div className="App">
       <MainLayout>
         <CartProvider>
-        <MainRoutes />
+          <SavedProvider>
+          <MainRoutes />
+          </SavedProvider>
         </CartProvider>
       </MainLayout>
     </div>
