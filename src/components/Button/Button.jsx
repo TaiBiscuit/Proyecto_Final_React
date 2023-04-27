@@ -10,13 +10,23 @@ export const Button = () => {
     const {savedItems, setSavedItems} = useContext(SavedContext)
 
     const handleLess = () => {
-        setState(state - 1);
+        const exist = itemCount.products.find((product) => product.productId === productId);
+        if (exist.qty > 0){
+            exist.qty--
+        }
+        if (exist.qty == 0){
+            const index = itemCount.products.indexOf(exist)
+            const itemToDelete = itemCount.products[index]
+            console.log(itemCount.products.slice(itemToDelete, 1))
+        }
     }
 
     const addToCart = () => {
         const exist = itemCount.products.find((product) => product.productId === productId);
+        console.log(exist)
          if (exist) {
-            exist.qtyItems += state;
+            exist.qty += state;
+            setState(state + 1);
         } else { 
         const newProduct = {
             productId,
