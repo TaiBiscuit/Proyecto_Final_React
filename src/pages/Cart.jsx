@@ -37,11 +37,6 @@ export const Cart = () => {
         .then(() => setLoading(false));
     }, [itemCount.products])
 
-    for(let i = 0; i < prod.length; i++){
-        prod[i].amount = prod.find(elem => elem.id == itemCount.products[i].productId) 
-        console.log(prod)
-    }
-
     const total = prod
         .map((product) => product.price)
         .reduce((accu, current) => accu + current, 0);
@@ -54,7 +49,7 @@ export const Cart = () => {
             const order = orderObj;
             const orderCollection = collection(db, "orders");
             addDoc(orderCollection, order)
-            .then(docRef => {alert('Document has been added succesfully')});
+            .then(docRef => {console.log('Document has been added succesfully')});
         } 
         navigate('/checkout', {state: total}); 
     };

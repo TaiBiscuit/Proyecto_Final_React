@@ -6,18 +6,13 @@ import { CartContext, SavedContext } from "../../context";
 export const Button = () => {
     const [state, setState] = useState(1);
     const { productId } = useParams();
-    const { itemCount, setItemCount } = useContext(CartContext);   
-    const {savedItems, setSavedItems} = useContext(SavedContext)
+     const { itemCount, setItemCount } = useContext(CartContext);   
+     const {setSavedItems} = useContext(SavedContext);
 
     const handleLess = () => {
         const exist = itemCount.products.find((product) => product.productId === productId);
         if (exist.qty > 0){
             exist.qty--
-        }
-        if (exist.qty == 0){
-            const index = itemCount.products.indexOf(exist)
-            const itemToDelete = itemCount.products[index]
-            console.log(itemCount.products.slice(itemToDelete, 1))
         }
     }
 

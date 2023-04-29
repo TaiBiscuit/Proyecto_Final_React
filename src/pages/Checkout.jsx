@@ -1,11 +1,14 @@
 import React from "react";
-/* import { useNavigate, useLocation} from 'react-router-dom';
-import { useState, useContext } from "react";
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
-import { CartContext } from "../context"; */
+import Swal from "sweetalert2";
 
 export const Checkout = () => {
 
+    Swal.fire({
+        title: 'Congrats!',
+        text: 'You just bought it!',
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      })
 
     return(
         <>
